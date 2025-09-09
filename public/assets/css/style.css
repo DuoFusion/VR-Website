@@ -223,7 +223,7 @@ Version: 1.0
 .hero-sel .hero-wrap-box {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 120px;
-  padding-bottom: 130px;
+  /* padding-bottom: 130px; */
   max-width: 590px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -264,6 +264,11 @@ Version: 1.0
   margin-right: 20px;
   min-width: 235px;
   max-width: 235px;
+}
+
+.blogs-sel .blog-slider .slick-slide {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .about-sel .section-content-box > p {
@@ -535,7 +540,7 @@ Version: 1.0
   display: inline-flex;
   content: "\f067";
   font-family: "Font Awesome 5 Pro";
-  font-weight: 400;
+  font-weight: 900;
   margin-left: auto;
   width: 40px;
   height: 40px;
