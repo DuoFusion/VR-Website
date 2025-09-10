@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import ScrollToTop from "../utils/ScrollToTop";
 import { useScrollSmoother } from "../utils/useScrollSmoother";
 import Footer from "./footer";
 import Header from "./header";
@@ -7,7 +8,7 @@ import TapTop from "./TapTop";
 
 const Layout = () => {
   useScrollSmoother();
-
+  ScrollToTop();
   return (
     <>
       <Loader />

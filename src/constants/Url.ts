@@ -81,6 +81,12 @@ const URL = {
   NEWS_LETTER: {
     ADD: "/news-letter/add",
   },
+  BLOG: {
+    ALL: "/blog",
+    ADD: "/blog/add",
+    EDIT: "/blog/edit",
+    DELETE: "/blog/delete",
+  },
 } as const;
 
 // Construct the URL object

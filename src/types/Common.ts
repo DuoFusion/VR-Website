@@ -1,4 +1,5 @@
 import * as Yup from "yup";
+import { Params } from "./Api";
 
 // ************ Common Api Data Type ***********
 
@@ -40,3 +41,25 @@ export interface FieldOptions<T> {
   extraRules?: (schema: T) => T;
   minItems?: number;
 }
+
+// ************ Breadcrumbs ***********
+
+export interface BreadcrumbsProps {
+  mainTitle: string;
+  parent?: string;
+  parentLink?: string;
+}
+
+// ************ Basic Table Filter Helper Options ***********
+
+export interface UseBasicTableFilterHelperOptions {
+  initialParams?: Params;
+  sortKey?: string;
+}
+
+// ************ Social Links ***********
+
+export type SocialLinksProps = {
+  socialMedia: Record<string, string | undefined> | any;
+  variant?: "list" | "inline";
+};

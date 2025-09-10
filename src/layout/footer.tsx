@@ -4,6 +4,7 @@ import { NewsLetterFormValues } from "../types";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { buildPayload } from "../utils/FormHelpers";
 import { NewsLetterSchema } from "../utils/ValidationSchemas";
+import { SocialLinks } from "../coreComponents";
 
 const Footer = () => {
   const { mutate: useNewsLetter, isPending: isNewsLetterAdding } = Mutations.useNewsLetter();
@@ -48,43 +49,7 @@ const Footer = () => {
                     </a>
                   </div>
                   <p>We take the time to understand your unique needs a goals, offering tailored advice that drives real results.</p>
-                  <ul className="social-link">
-                    {WebSetting?.socialMedia?.facebook && (
-                      <li>
-                        <Link to={WebSetting?.socialMedia?.facebook}>
-                          <i className="fab fa-facebook-f" />
-                        </Link>
-                      </li>
-                    )}
-                    {WebSetting?.socialMedia?.twitter && (
-                      <li>
-                        <Link to={WebSetting?.socialMedia?.twitter}>
-                          <i className="fab fa-twitter" />
-                        </Link>
-                      </li>
-                    )}
-                    {WebSetting?.socialMedia?.linkedin && (
-                      <li>
-                        <Link to={WebSetting?.socialMedia?.linkedin}>
-                          <i className="fab fa-linkedin-in" />
-                        </Link>
-                      </li>
-                    )}
-                    {WebSetting?.socialMedia?.youtube && (
-                      <li>
-                        <Link to={WebSetting?.socialMedia?.youtube}>
-                          <i className="fab fa-youtube" />
-                        </Link>
-                      </li>
-                    )}
-                    {WebSetting?.socialMedia?.instagram && (
-                      <li>
-                        <Link to={WebSetting?.socialMedia?.instagram}>
-                          <i className="fab fa-instagram" />
-                        </Link>
-                      </li>
-                    )}
-                  </ul>
+                   <SocialLinks socialMedia={WebSetting?.socialMedia} variant="list" />
                 </div>
               </div>
             </div>

@@ -5,6 +5,7 @@ export const KEYS = {
   ChANGE_PASSWORD: "change-password",
   WORKSHOP: {
     ALL: "workshop",
+    DETAILS: "workshop-details",
     ADD: "add-workshop",
     EDIT: "edit-workshop",
     DELETE: "delete-workshop",
@@ -76,5 +77,12 @@ export const KEYS = {
   },
   NEWS_LETTER: {
     ADD: "add-news-letter",
+  },
+  BLOG: {
+    ALL: "blog",
+    DETAILS: "blog-details",
+    ADD: "add-blog",
+    EDIT: "edit-blog",
+    DELETE: "delete-blog",
   },
 } as const;
