@@ -16,6 +16,7 @@ export const KEYS = {
   },
   COURSES: {
     ALL: "courses",
+    DETAILS: "courses-details",
     ADD: "add-courses",
     EDIT: "edit-courses",
     DELETE: "delete-courses",
@@ -84,5 +85,11 @@ export const KEYS = {
     ADD: "add-blog",
     EDIT: "edit-blog",
     DELETE: "delete-blog",
+  },
+  CONTACT_US: {
+    ALL: "contact-us",
+    ADD: "add-contact-us",
+    EDIT: "edit-contact-us",
+    DELETE: "delete-contact-us",
   },
 } as const;

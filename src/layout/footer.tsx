@@ -1,35 +1,39 @@
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { Link } from "react-router-dom";
 import { Mutations, Queries } from "../api";
+import { ImagePath, ROUTES } from "../constants";
+import { SocialLinks } from "../coreComponents";
 import { NewsLetterFormValues } from "../types";
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { buildPayload } from "../utils/FormHelpers";
 import { NewsLetterSchema } from "../utils/ValidationSchemas";
-import { SocialLinks } from "../coreComponents";
 
 const Footer = () => {
-  const { mutate: useNewsLetter, isPending: isNewsLetterAdding } = Mutations.useNewsLetter();
+  const { mutate: useNewsLetter } = Mutations.useNewsLetter();
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
+  const { data: Workshop } = Queries.useGetWorkshop({ featuresFilter: true });
+  const { data: Courses } = Queries.useGetCourses({ featuresFilter: true });
+  const { data: Blog } = Queries.useGetBlog({});
 
   const handleSubmit = async (values: NewsLetterFormValues, { resetForm }: FormikHelpers<NewsLetterFormValues>) => {
     const payload = buildPayload(values);
     useNewsLetter(payload, { onSuccess: () => resetForm() });
   };
   return (
-    <footer className="elearning-footer pt-100">
+    <footer className="elearning-footer">
       <div className="container">
         {/*=== Newsletter Wrapper  ===*/}
-        <div className="newsletter-wrapper bg_cover pt-100 pb-100" data-aos="fade-up" data-aos-duration={1200} style={{ backgroundImage: "url(assets/images/bg/cta-bg1.png)" }}>
+        <div className="newsletter-wrapper bg_cover pt-80 pb-80" data-aos="fade-up" data-aos-duration={1200} style={{ backgroundImage: `url(${ImagePath}bg/cta-bg1.png)` }}>
           <div className="row justify-content-center">
             <div className="col-lg-10">
               {/*=== Section Content Box  ===*/}
               <div className="section-content-box text-white text-center">
                 <h2>Smart Solutions for a Dynamic Digital World</h2>
                 <h5>Manage All Your Cards in One Place" simplifies your financial life by bringing all your credit</h5>
-                <a href="https://html.pixelfit.agency/sasly/pages/contact.html" className="theme-btn style-one">
+                <Link to={ROUTES.COURSE.COURSE} className="theme-btn style-one">
                   Find your Courses
                   <i className="fas fa-angle-double-right" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -44,12 +48,12 @@ const Footer = () => {
               <div className="footer-widget footer-about-widget mb-40" data-aos="fade-up" data-aos-duration={1200}>
                 <div className="footer-content">
                   <div className="footer-logo">
-                    <a href="index.html">
+                    <Link to={ROUTES.HOME}>
                       <img src="assets/images/logo/logo-white.png" alt="Brand Logo" />
-                    </a>
+                    </Link>
                   </div>
-                  <p>We take the time to understand your unique needs a goals, offering tailored advice that drives real results.</p>
-                   <SocialLinks socialMedia={WebSetting?.socialMedia} variant="list" />
+                  <p>{WebSetting?.shortDescription}</p>
+                  <SocialLinks socialMedia={WebSetting?.socialMedia} variant="list" />
                 </div>
               </div>
             </div>
@@ -132,7 +136,7 @@ const Footer = () => {
             <div className="col-lg-6">
               <div className="copyright-text">
                 <p>
-                  © 2025 <span> HK Digiverse & IT Consultancy Pvt Ltd.</span>
+                  © 2025 <Link to="https://hkdigiverse.com/" target="_blank"> HK Digiverse & IT Consultancy Pvt Ltd.</Link>
                 </p>
               </div>
             </div>
@@ -140,16 +144,25 @@ const Footer = () => {
               <div className="copyright-nav">
                 <ul>
                   <li>
-                    <a href="#">Home</a>
+                    <Link to={ROUTES.HOME}>Home</Link>
                   </li>
+                  {Workshop?.data?.totalData !== 0 && (
+                    <li>
+                      <Link to={ROUTES.WORKSHOP.WORKSHOP}>Workshop</Link>
+                    </li>
+                  )}
+                  {Courses?.data?.totalData !== 0 && (
+                    <li>
+                      <Link to={ROUTES.COURSE.COURSE}>Course</Link>
+                    </li>
+                  )}
+                  {Blog?.data?.totalData !== 0 && (
+                    <li>
+                      <Link to={ROUTES.BLOG.BLOG}>Course</Link>
+                    </li>
+                  )}
                   <li>
-                    <a href="#">Workshop</a>
-                  </li>
-                  <li>
-                    <a href="#">Course</a>
-                  </li>
-                  <li>
-                    <a href="#">Contact</a>
+                    <Link to={ROUTES.HOME}>Contact</Link>
                   </li>
                 </ul>
               </div>

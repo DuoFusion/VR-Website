@@ -15,5 +15,6 @@ export * from "./Blog";
 export * from "./Achievements";
 // export * from "./About";
 export * from "./Languages";
+export * from "./ContactUs";
 // export * from "./AdminSetting";
 // export * from "./UserRegistration";

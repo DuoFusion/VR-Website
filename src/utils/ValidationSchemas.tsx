@@ -57,3 +57,10 @@ export function fieldSchema<K extends keyof FieldTypeMap>(...args: FieldSchemaAr
 export const NewsLetterSchema = Yup.object({
   email: fieldSchema("string", "email"),
 });
+
+// Contact Us
+export const ContactUsSchema = Yup.object({
+  name: fieldSchema("string", "name"),
+  email: fieldSchema("string", "email"),
+  message: fieldSchema("string", "message"),
+});

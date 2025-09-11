@@ -1,7 +1,7 @@
 import { Fragment } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Queries } from "../../api";
-import { ROUTES } from "../../constants";
+import { Href, ROUTES } from "../../constants";
 import { Breadcrumbs, SocialLinks } from "../../coreComponents";
 
 const BlogDetails = () => {
@@ -33,7 +33,7 @@ const BlogDetails = () => {
                   <div className="entry-footer">
                     <div className="tag-links">
                       <span>Tag:</span>
-                      <a href="#">{BlogDetailsData?.tag}</a>
+                      <Link to={Href}>{BlogDetailsData?.tag}</Link>
                     </div>
                     <div className="social-share">
                       <span>Share:</span>

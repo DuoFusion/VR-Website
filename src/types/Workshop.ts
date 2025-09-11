@@ -4,12 +4,14 @@ import { LanguagesType } from "./Languages";
 export interface WorkshopFormValues {
   title?: string;
   duration?: string;
-  instructorImage?: string;
-  instructorName?: string;
+  thumbnailImage?: string;
   workshopImage?: string;
   price?: number;
   priority?: number;
   features?: boolean;
+  description?: string;
+  review?: number;
+  level?: string;
 }
 
 export interface WorkshopType extends WorkshopFormValues, CommonDataType {

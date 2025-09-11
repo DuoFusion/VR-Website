@@ -1,5 +1,6 @@
 import { KEYS, URL_KEYS } from "../constants";
 import { AchievementsApiResponse, BlogApiResponse, BlogDetailsApiResponse, FaqApiResponse, Params, TestomonialsApiResponse, WebSettingApiResponse, WorkshopApiResponse, WorkshopDetailApiResponse } from "../types";
+import { CoursesApiResponse, CoursesDetailApiResponse } from "../types/Courses";
 import Get from "./Get";
 import { useApiGet } from "./hooks";
 
@@ -11,8 +12,9 @@ const Queries = {
   // // ************ Workshop Register ***********
   // useGetWorkshopRegister: (params: Params) => useApiGet<WorkshopRegisterApiResponse>([KEYS.WORKSHOP_REGISTER.ALL, params], () => Get(URL_KEYS.WORKSHOP_REGISTER.ALL, params)),
 
-  // // ************ Courses ***********
-  // useGetCourses: (params: Params) => useApiGet<CoursesApiResponse>([KEYS.COURSES.ALL, params], () => Get(URL_KEYS.COURSES.ALL, params)),
+  // ************ Courses ***********
+  useGetCourses: (params: Params) => useApiGet<CoursesApiResponse>([KEYS.COURSES.ALL, params], () => Get(URL_KEYS.COURSES.ALL, params)),
+  useGetCoursesDetail: (id: string) => useApiGet<CoursesDetailApiResponse>([KEYS.COURSES.DETAILS, id], () => Get(`${URL_KEYS.COURSES.ALL}/${id}`)),
 
   // // ************ Courses Register ***********
   // useGetCoursesRegister: (params: Params) => useApiGet<CoursesRegisterApiResponse>([KEYS.COURSES_REGISTER.ALL, params], () => Get(URL_KEYS.COURSES_REGISTER.ALL, params)),

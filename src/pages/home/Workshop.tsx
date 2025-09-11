@@ -1,11 +1,13 @@
 import Slider from "react-slick";
 import { WorkshopSettings } from "../../data";
 import { Queries } from "../../api";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants";
 
 const Workshop = () => {
   const { data: Workshop } = Queries.useGetWorkshop({ featuresFilter: true });
   const All_Workshop = Workshop?.data;
-
+  const navigate = useNavigate();
   return (
     <>
       {All_Workshop?.totalData !== 0 && (
@@ -20,11 +22,13 @@ const Workshop = () => {
               {All_Workshop?.workshop_data?.map((item, index) => (
                 <div className="sasly-category-item style-one" key={index}>
                   <div className="icon">
-                    <img src={item.workshopImage} alt="category icon" />
+                    <img src={item.thumbnailImage} alt="category icon" />
                   </div>
                   <div className="content">
-                    <h6 className="title">{item.title}</h6>
-                    <p>{item.instructorName}</p>
+                    <h6 className="title cursor-pointer" onClick={() => navigate(`${ROUTES.WORKSHOP.WORKSHOP_DETAILS}/${item._id}`)}>
+                      {item.title}
+                    </h6>
+                    <p className="text-capitalize">{item.level}</p>
                   </div>
                 </div>
               ))}

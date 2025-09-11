@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { Queries } from "../../api";
+import { ROUTES } from "../../constants";
 
 const HeroBanner = () => {
   const { data: WebSettingData } = Queries.useGetWebSetting();
@@ -27,9 +29,9 @@ const HeroBanner = () => {
               <p data-aos="fade-up" data-aos-duration={1400}>
                 eLearning has revolutionized the way people access education and skills training. Unlike traditional classroom settings, eLearning provides flexibility and convenience, allowing learners to study at their own pace
               </p>
-              <a href="index.html" className="theme-btn style-one" data-aos="fade-up" data-aos-duration={1600}>
+              <Link to={ROUTES.COURSE.COURSE} className="theme-btn style-one" data-aos="fade-up" data-aos-duration={1600}>
                 Find Best Courses <i className="fas fa-angle-double-right" />
-              </a>
+              </Link>
             </div>
             {/*===  Hero Wrap Box  ===*/}
             <div className="hero-wrap-box">

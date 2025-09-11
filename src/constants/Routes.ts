@@ -8,4 +8,9 @@ export const ROUTES = {
     WORKSHOP: "/workshop",
     WORKSHOP_DETAILS: "/workshop-details",
   },
+  COURSE: {
+    COURSE: "/course",
+    COURSE_DETAILS: "/course-details",
+  },
+  CONTACT_US : "/contact-us",
 } as const;

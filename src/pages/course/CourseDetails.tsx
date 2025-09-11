@@ -4,21 +4,21 @@ import { Fragment, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import { Queries } from "../../api";
-import { Breadcrumbs, SocialLinks } from "../../coreComponents";
 import { ROUTES } from "../../constants";
+import { Breadcrumbs, SocialLinks } from "../../coreComponents";
 
-const WorkshopDetails = () => {
+const CourseDetails = () => {
   const [basicTab, setBasicTab] = useState("overview");
   const { id } = useParams();
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
 
-  const { data: Workshop } = Queries.useGetWorkshopDetail(id || "");
-  const All_WorkshopDetails = Workshop?.data;
+  const { data: Course } = Queries.useGetCoursesDetail(id || "");
+  const All_CourseDetails = Course?.data;
 
   return (
     <Fragment>
-      <Breadcrumbs mainTitle={All_WorkshopDetails?.title ?? "Workshop Details"} parent="Workshop" parentLink={ROUTES.WORKSHOP.WORKSHOP} />
+      <Breadcrumbs mainTitle={All_CourseDetails?.title ?? "Course Details"} parent="Course" parentLink={ROUTES.COURSE.COURSE} />
       <section className="course-details-ss">
         <div className="container">
           <div className="row">
@@ -26,12 +26,12 @@ const WorkshopDetails = () => {
               <div className="course-details-wrapper">
                 {/* Thumbnail */}
                 <div className="course-thumbnail" data-aos="fade-up" data-aos-delay={10} data-aos-duration={900}>
-                  <img src={All_WorkshopDetails?.workshopImage} alt="course thumbnail" />
+                  <img src={All_CourseDetails?.courseImage} alt="course thumbnail" />
                 </div>
 
                 {/* Course Info */}
                 <div className="course-info">
-                  <h3 className="title">{All_WorkshopDetails?.title}</h3>
+                  <h3 className="title">{All_CourseDetails?.title}</h3>
                   <div className="d-block d-md-flex justify-content-between">
                     <div className="course-meta">
                       <div className="instructor d-flex">
@@ -41,25 +41,10 @@ const WorkshopDetails = () => {
                           <h6 className="text-capitalize">{WebSetting?.instructorName}</h6>
                         </div>
                       </div>
-                      {/* <div className="ef-category-box">
-                        <h6>Skill Level</h6>
-                        <a href="#" className="text-capitalize">
-                          {All_WorkshopDetails?.level}
-                        </a>
-                      </div> */}
-                      {/* <div className="ef-rating-box">
-                        <h6>Reviews</h6>
-                        <ul className="ratings">
-                          <li className="pe-2">
-                            <span>{All_WorkshopDetails?.review}</span>
-                          </li>
-                          <Rate value={All_WorkshopDetails?.review} disabled />
-                        </ul>
-                      </div> */}
                     </div>
                     <div className="course-meta">
                       <div className="ef-rating-box">
-                        <h3>₹{All_WorkshopDetails?.price}</h3>
+                        <h3 className="price-text">₹{All_CourseDetails?.price}<span>₹{All_CourseDetails?.mrp}</span></h3>
                       </div>
                       <div className="ef-rating-box">
                         <div className="course-button text-center">
@@ -101,31 +86,43 @@ const WorkshopDetails = () => {
                       <div className="sasly-content-box">
                         <div className="course-info">
                           <ul className="check-list style-one">
-                            {All_WorkshopDetails?.level && (
+                            {All_CourseDetails?.level && (
                               <li>
                                 <p>Skill Level :-</p>
-                                <span>{All_WorkshopDetails?.level}</span>
+                                <span>{All_CourseDetails?.level}</span>
                               </li>
                             )}
-                            {(All_WorkshopDetails?.review ?? 0) > 0 && (
+                            {(All_CourseDetails?.review ?? 0) > 0 && (
                               <li>
                                 <p>Reviews :-</p>
                                 <span>
-                                  <Rate className="d-flex m-0" value={All_WorkshopDetails?.review} disabled />
+                                  <Rate className="d-flex m-0" value={All_CourseDetails?.review} disabled />
                                 </span>
                               </li>
                             )}
-                            {All_WorkshopDetails?.duration && (
+                            {All_CourseDetails?.duration && (
                               <li>
                                 <p>Duration :-</p>
-                                <span>{All_WorkshopDetails?.duration}</span>
+                                <span>{All_CourseDetails?.duration}</span>
+                              </li>
+                            )}
+                            {All_CourseDetails?.totalLectures && (
+                              <li>
+                                <p>Total Lectures :-</p>
+                                <span>{All_CourseDetails?.totalLectures}</span>
+                              </li>
+                            )}
+                            {All_CourseDetails?.totalHours && (
+                              <li>
+                                <p>Total Hours :-</p>
+                                <span>{All_CourseDetails?.totalHours}</span>
                               </li>
                             )}
                           </ul>
                         </div>
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: All_WorkshopDetails?.description || "",
+                            __html: All_CourseDetails?.description || "",
                           }}
                         />
                       </div>
@@ -154,4 +151,4 @@ const WorkshopDetails = () => {
   );
 };
 
-export default WorkshopDetails;
+export default CourseDetails;

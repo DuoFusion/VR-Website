@@ -579,7 +579,28 @@ label {
   -ms-flex-align: center;
   align-items: center;
 }
-.check-list.style-one li:not(:last-child) {
+.check-list.style-one li p {
+  color: var(--heading-color);
+  font-weight: 500;
+  margin: 0;
+  text-transform: capitalize;
+}
+.check-list.style-one li span {
+  /* color: var(--text-color); */
+  font-weight: 400;
+  text-transform: capitalize;
+  padding: 0 10px;
+}
+.check-list.style-one li span .ant-rate .ant-rate-star {
+  color: var(--primary-color) !important;
+}
+.check-list.style-one li span .ant-rate .ant-rate-star span {
+  padding: 0 !important;
+}
+.check-list.style-one li span .ant-rate-star-zero .ant-rate-star-second {
+  color: var(--main-gray) !important;
+}
+.check-list.style-one > li:not(:last-child) {
   margin-bottom: 10px;
 }
 .check-list.style-one li i {
@@ -1101,7 +1122,7 @@ label {
 .sasly-pagination ul li a,
 .sasly-pagination .ant-pagination-item,
 .sasly-pagination .ant-pagination-item a,
-.sasly-pagination .ant-pagination-prev ,
+.sasly-pagination .ant-pagination-prev,
 .sasly-pagination .ant-pagination-next {
   width: 40px;
   height: 40px;
@@ -1124,8 +1145,8 @@ label {
 .sasly-pagination .ant-pagination-item-active,
 .sasly-pagination .ant-pagination-item:hover,
 .sasly-pagination ul li a:hover,
-.sasly-pagination ul li a.active ,
-.sasly-pagination .ant-pagination-prev:hover ,
+.sasly-pagination ul li a.active,
+.sasly-pagination .ant-pagination-prev:hover,
 .sasly-pagination .ant-pagination-next:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
@@ -1297,6 +1318,12 @@ label {
   -webkit-box-shadow: 0px 30px 80px 15px rgba(0, 0, 0, 0.09);
   box-shadow: 0px 30px 80px 15px rgba(0, 0, 0, 0.09);
   border-radius: 7px;
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.header-navigation .main-menu ul > li .sub-menu::-webkit-scrollbar {
+  width: 0;
 }
 .header-navigation .main-menu ul > li .sub-menu li {
   display: block;
@@ -7110,7 +7137,7 @@ label {
   padding: 22px 50px;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 

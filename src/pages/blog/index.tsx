@@ -4,7 +4,7 @@ import { FormatDate } from "../../utils/DateFormatted";
 import { Link } from "react-router-dom";
 import { useBasicTableFilterHelper } from "../../utils/hook";
 import { Pagination } from "antd";
-import { ROUTES } from "../../constants";
+import { Href, ROUTES } from "../../constants";
 import { Breadcrumbs } from "../../coreComponents";
 
 const Blog = () => {
@@ -31,10 +31,10 @@ const Blog = () => {
                   <div className="post-content">
                     <div className="post-meta style-one">
                       <span className="category">
-                        <a href="#">{item.tag}</a>
+                        <Link to={Href}>{item.tag}</Link>
                       </span>
                       <span className="date">
-                        <a href="#">{FormatDate(item?.createdAt)}</a>
+                        <Link to={Href}>{FormatDate(item?.createdAt)}</Link>
                       </span>
                     </div>
                     <h4 className="title">

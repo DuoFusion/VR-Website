@@ -19,6 +19,10 @@ export interface WebSettingType extends CommonDataType {
   rating?: string;
   address?: string;
   _id?: string;
+  instructorName?: string;
+  instructorImage?: string;
+  instructorAbout?: string;
+  shortDescription?: string;
 }
 
 export interface WebSettingApiResponse extends MessageStatus {

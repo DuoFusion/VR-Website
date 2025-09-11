@@ -3,7 +3,7 @@ import { Queries } from "../../api";
 import { BlogsSettings } from "../../data";
 import { FormatDate } from "../../utils/DateFormatted";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../constants";
+import { Href, ROUTES } from "../../constants";
 
 const Blogs = () => {
   const { data: Blog } = Queries.useGetBlog({});
@@ -38,15 +38,15 @@ const Blogs = () => {
                     <div className="post-content">
                       <div className="post-meta">
                         <span>
-                          <a href="#" className="cat-btn">
+                          <Link to={Href} className="cat-btn">
                             {item?.tag}
-                          </a>
+                          </Link>
                         </span>
                         <span>
-                          <a href="#">{FormatDate(item?.createdAt)}</a>
+                          <Link to={Href}>{FormatDate(item?.createdAt)}</Link>
                         </span>
                         {/* <span>
-                          <a href="#">Comments(5)</a>
+                          <Link to={Href}>Comments(5)</Link>
                         </span> */}
                       </div>
                       <h4 className="title">

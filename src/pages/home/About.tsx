@@ -40,12 +40,6 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              {/*===  About Button  ===*/}
-              <div className="about-button mt-40" data-aos="fade-up" data-aos-duration={1800}>
-                <a href="https://html.pixelfit.agency/sasly/pages/about.html" className="theme-btn style-one">
-                  Learn More About Us <i className="fas fa-angle-double-right" />
-                </a>
-              </div>
             </div>
           </div>
           <div className="col-lg-6">
