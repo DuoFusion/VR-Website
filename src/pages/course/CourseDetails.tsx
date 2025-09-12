@@ -1,7 +1,7 @@
 import { Rate } from "antd";
 import classNames from "classnames";
 import { Fragment, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import { Queries } from "../../api";
 import { ROUTES } from "../../constants";
@@ -10,12 +10,15 @@ import { Breadcrumbs, SocialLinks } from "../../coreComponents";
 const CourseDetails = () => {
   const [basicTab, setBasicTab] = useState("overview");
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
 
-  const { data: Course } = Queries.useGetCoursesDetail(id || "");
+  const { data: Course, status } = Queries.useGetCoursesDetail(id || "");
   const All_CourseDetails = Course?.data;
 
+  if (status === "error") navigate(ROUTES.COURSE.COURSE);
   return (
     <Fragment>
       <Breadcrumbs mainTitle={All_CourseDetails?.title ?? "Course Details"} parent="Course" parentLink={ROUTES.COURSE.COURSE} />
@@ -44,11 +47,16 @@ const CourseDetails = () => {
                     </div>
                     <div className="course-meta">
                       <div className="ef-rating-box">
-                        <h3 className="price-text">₹{All_CourseDetails?.price}<span>₹{All_CourseDetails?.mrp}</span></h3>
+                        <h3 className="price-text">
+                          ₹{All_CourseDetails?.price}
+                          <span>₹{All_CourseDetails?.mrp}</span>
+                        </h3>
                       </div>
                       <div className="ef-rating-box">
                         <div className="course-button text-center">
-                          <button className="theme-btn style-one">Continue</button>
+                          <button className="theme-btn style-one" onClick={() => navigate(`${ROUTES.COURSE.COURSES_REGISTER}/${id}`)}>
+                            Continue
+                          </button>
                         </div>
                       </div>
                     </div>

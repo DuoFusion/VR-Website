@@ -64,3 +64,29 @@ export const ContactUsSchema = Yup.object({
   email: fieldSchema("string", "email"),
   message: fieldSchema("string", "message"),
 });
+
+export const WorkshopRegisterSchema = Yup.object({
+  name: fieldSchema("string", "name"),
+  gender: fieldSchema("string", "gender"),
+  standard: fieldSchema("string", "standard"),
+  schoolName: fieldSchema("string", "school Name"),
+  city: fieldSchema("string", "city"),
+  whatsAppNumber: fieldSchema("string", "phone Number", { extraRules: (s) => s.matches(/^[0-9]{10}$/, "WhatsApp number must be 10 digits") }),
+  email: fieldSchema("string", "email", { extraRules: (s) => s.email("Invalid email address") }),
+  previousPercentage: fieldSchema("number", "previous Percentage"),
+  targetPercentage: fieldSchema("number", "target Percentage"),
+  goal: fieldSchema("string", "goal"),
+});
+
+export const CoursesRegisterSchema = Yup.object({
+  name: fieldSchema("string", "name"),
+  gender: fieldSchema("string", "gender"),
+  standard: fieldSchema("string", "standard"),
+  schoolName: fieldSchema("string", "school Name"),
+  city: fieldSchema("string", "city"),
+  whatsAppNumber: fieldSchema("string", "phone Number", { extraRules: (s) => s.matches(/^[0-9]{10}$/, "WhatsApp number must be 10 digits") }),
+  email: fieldSchema("string", "email", { extraRules: (s) => s.email("Invalid email address") }),
+  previousPercentage: fieldSchema("number", "previous Percentage"),
+  targetPercentage: fieldSchema("number", "target Percentage"),
+  goal: fieldSchema("string", "goal"),
+});

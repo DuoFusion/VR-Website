@@ -57,13 +57,17 @@ const URL = {
   },
   COURSES_REGISTER: {
     ALL: "/course-register",
+    ADD: "/course-register/add",
     EDIT: "/course-register/edit",
     DELETE: "/course-register/delete",
+    VERIFY: "/course-register/verify",
   },
   WORKSHOP_REGISTER: {
     ALL: "/workshop-register",
+    ADD: "/workshop-register/add",
     EDIT: "/workshop-register/edit",
     DELETE: "/workshop-register/delete",
+    VERIFY: "/workshop-register/verify",
   },
   ABOUT: {
     ALL: "/about",

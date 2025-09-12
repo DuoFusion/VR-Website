@@ -55,13 +55,17 @@ export const KEYS = {
   },
   COURSES_REGISTER: {
     ALL: "course-register",
+    ADD: "add-course-register",
     EDIT: "edit-course-register",
     DELETE: "delete-course-register",
+    VERIFY: "verify-course-register",
   },
   WORKSHOP_REGISTER: {
     ALL: "workshop-register",
+    ADD: "add-workshop-register",
     EDIT: "edit-workshop-register",
     DELETE: "delete-workshop-register",
+    VERIFY: "verify-workshop-register",
   },
   ABOUT: {
     ALL: "about",

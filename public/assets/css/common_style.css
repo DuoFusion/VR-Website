@@ -6150,6 +6150,30 @@ label {
   margin-bottom: 25px;
   color: var(--heading-color);
 }
+.contact-form-ss .contact-wrapper .contact-form .form_control:focus-visible {
+  outline: none !important;
+}
+.contact-form-ss .contact-wrapper .contact-form .ant-select-selector {
+  outline: none !important;
+  border: none !important;
+  color: #333;
+  padding: 0px;
+  font-size: 15px;
+  border-radius: 20px;
+}
+.contact-form-ss .contact-wrapper .contact-form .ant-select-arrow {
+  height: 0px;
+  color: #333 !important;
+}
+.ant-select-dropdown .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: var(--primary-color) !important;
+}
+.ant-select .ant-select-selection-placeholder {
+  color: var(--heading-color) !important;
+}
+.ant-select-focused.ant-select-outlined:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+  box-shadow: none !important;
+}
 .contact-form-ss .contact-wrapper .contact-form .form_control::-webkit-input-placeholder {
   color: var(--heading-color);
 }
@@ -7055,6 +7079,11 @@ label {
 }
 .sidebar-widget-area .sidebar-widget.sidebar-course-info-widget .widget-content .course-info ul li {
   font-size: 16px;
+}
+.sidebar-widget-area .sidebar-widget.sidebar-course-info-widget .widget-content .course-info ul li .reviews .ant-rate-star {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  border-bottom: none !important;
 }
 .sidebar-widget-area .sidebar-widget.sidebar-course-info-widget .widget-content .course-info ul li:not(:last-child) {
   margin-bottom: 10px;

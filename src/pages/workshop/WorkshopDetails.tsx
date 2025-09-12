@@ -1,7 +1,7 @@
 import { Rate } from "antd";
 import classNames from "classnames";
 import { Fragment, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import { Queries } from "../../api";
 import { Breadcrumbs, SocialLinks } from "../../coreComponents";
@@ -10,11 +10,15 @@ import { ROUTES } from "../../constants";
 const WorkshopDetails = () => {
   const [basicTab, setBasicTab] = useState("overview");
   const { id } = useParams();
+  const navigate = useNavigate();
+
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
 
-  const { data: Workshop } = Queries.useGetWorkshopDetail(id || "");
+  const { data: Workshop, status } = Queries.useGetWorkshopDetail(id || "");
   const All_WorkshopDetails = Workshop?.data;
+
+  if (status === "error") navigate(ROUTES.WORKSHOP.WORKSHOP);
 
   return (
     <Fragment>
@@ -41,21 +45,6 @@ const WorkshopDetails = () => {
                           <h6 className="text-capitalize">{WebSetting?.instructorName}</h6>
                         </div>
                       </div>
-                      {/* <div className="ef-category-box">
-                        <h6>Skill Level</h6>
-                        <a href="#" className="text-capitalize">
-                          {All_WorkshopDetails?.level}
-                        </a>
-                      </div> */}
-                      {/* <div className="ef-rating-box">
-                        <h6>Reviews</h6>
-                        <ul className="ratings">
-                          <li className="pe-2">
-                            <span>{All_WorkshopDetails?.review}</span>
-                          </li>
-                          <Rate value={All_WorkshopDetails?.review} disabled />
-                        </ul>
-                      </div> */}
                     </div>
                     <div className="course-meta">
                       <div className="ef-rating-box">
@@ -63,7 +52,9 @@ const WorkshopDetails = () => {
                       </div>
                       <div className="ef-rating-box">
                         <div className="course-button text-center">
-                          <button className="theme-btn style-one">Continue</button>
+                          <button className="theme-btn style-one" onClick={() => navigate(`${ROUTES.WORKSHOP.WORKSHOP_REGISTER}/${id}`)}>
+                            Continue
+                          </button>
                         </div>
                       </div>
                     </div>

@@ -107,7 +107,7 @@ const ContactUs = () => {
                         </div>
                         <div className="col-lg-12">
                           <div className="form-group">
-                            <Field className="form_control" placeholder="Message" type="textarea" name="message" rows={5} cols={8} />
+                            <Field className="form_control" placeholder="Message" as="textarea" name="message" rows={5} cols={8} />
                           </div>
                           <ErrorMessage name="message" component="div" className="text-danger small" />
                         </div>

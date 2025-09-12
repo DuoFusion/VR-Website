@@ -7,10 +7,12 @@ export const ROUTES = {
   WORKSHOP: {
     WORKSHOP: "/workshop",
     WORKSHOP_DETAILS: "/workshop-details",
+    WORKSHOP_REGISTER: "/workshop-register",
   },
   COURSE: {
     COURSE: "/course",
     COURSE_DETAILS: "/course-details",
+    COURSES_REGISTER: "/coursers-register",
   },
   CONTACT_US : "/contact-us",
 } as const;
