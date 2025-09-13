@@ -6,6 +6,7 @@ import { SocialLinks } from "../coreComponents";
 import { NewsLetterFormValues } from "../types";
 import { buildPayload } from "../utils/FormHelpers";
 import { NewsLetterSchema } from "../utils/ValidationSchemas";
+import { scrollToSection } from "../utils/scrollToSection";
 
 const Footer = () => {
   const { mutate: useNewsLetter } = Mutations.useNewsLetter();
@@ -49,7 +50,7 @@ const Footer = () => {
                 <div className="footer-content">
                   <div className="footer-logo">
                     <Link to={ROUTES.HOME}>
-                      <img src="assets/images/logo/logo-white.png" alt="Brand Logo" />
+                      <img src={`${ImagePath}logo/logo-white.png`} alt="Brand Logo" />
                     </Link>
                   </div>
                   <p>{WebSetting?.shortDescription}</p>
@@ -66,19 +67,29 @@ const Footer = () => {
                       <h4 className="widget-title">Services</h4>
                       <ul className="footer-nav">
                         <li>
-                          <a href="#">Business Solutions</a>
+                          <Link to={"#workshop"} onClick={() => scrollToSection("#workshop")}>
+                            Workshop
+                          </Link>
                         </li>
                         <li>
-                          <a href="#">Investment Planning</a>
+                          <Link to={"#about"} onClick={() => scrollToSection("#about")}>
+                            About Us
+                          </Link>
                         </li>
                         <li>
-                          <a href="#">Marketing Solutions</a>
+                          <Link to={"#courses"} onClick={() => scrollToSection("#courses")}>
+                            Popular Courses
+                          </Link>
                         </li>
                         <li>
-                          <a href="#">Banking &amp; Insurance</a>
+                          <Link to={"#testimonial"} onClick={() => scrollToSection("#testimonial")}>
+                            Testimonial
+                          </Link>
                         </li>
                         <li>
-                          <a href="#">Planning &amp; Research</a>
+                          <Link to={"#blog"} onClick={() => scrollToSection("#blog")}>
+                            Blog
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -136,7 +147,11 @@ const Footer = () => {
             <div className="col-lg-6">
               <div className="copyright-text">
                 <p>
-                  © 2025 <Link to="https://hkdigiverse.com/" target="_blank"> HK Digiverse & IT Consultancy Pvt Ltd.</Link>
+                  © 2025{" "}
+                  <Link to="https://hkdigiverse.com/" target="_blank">
+                    {" "}
+                    HK Digiverse & IT Consultancy Pvt Ltd.
+                  </Link>
                 </p>
               </div>
             </div>
@@ -158,7 +173,7 @@ const Footer = () => {
                   )}
                   {Blog?.data?.totalData !== 0 && (
                     <li>
-                      <Link to={ROUTES.BLOG.BLOG}>Course</Link>
+                      <Link to={ROUTES.BLOG.BLOG}>Blog</Link>
                     </li>
                   )}
                   <li>

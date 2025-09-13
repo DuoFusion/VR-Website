@@ -11,7 +11,7 @@ const Workshop = () => {
   return (
     <>
       {All_Workshop?.totalData !== 0 && (
-        <section className="categories-sel pt-130">
+        <section className="categories-sel pt-130" id="workshop">
           <div className="container">
             <div className="section-title text-center mb-60" data-aos="fade-up" data-aos-duration={1200}>
               <span className="sub-heading">Top Workshop</span>

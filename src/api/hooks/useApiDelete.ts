@@ -1,7 +1,6 @@
 import { InvalidateQueryFilters, QueryKey, useMutation, UseMutationOptions, useQueryClient } from "@tanstack/react-query";
 // import { notification } from "antd";
-import { useNavigate } from "react-router-dom";
-import { HTTP_STATUS, ROUTES } from "../../constants";
+import { HTTP_STATUS } from "../../constants";
 // import { useAppDispatch } from "../../store/hooks";
 // import { logout } from "../../store/slices/AuthSlice";
 import { CombinedErrorResponse } from "../../types";
@@ -10,7 +9,6 @@ import { CombinedErrorResponse } from "../../types";
 function useApiDelete<TInput, TResponse>(mutationKey: QueryKey, callback: (input: TInput) => Promise<TResponse>, options?: UseMutationOptions<TResponse, CombinedErrorResponse, TInput>) {
   const q = useQueryClient();
   // const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   return useMutation<TResponse, CombinedErrorResponse, TInput>({
     mutationKey,
     mutationFn: callback,

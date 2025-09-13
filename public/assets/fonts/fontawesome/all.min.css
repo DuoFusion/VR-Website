@@ -7124,14 +7124,14 @@
   font-family: "Font Awesome 5 Brands";
   font-weight: 400;
 }
-@font-face {
+/* @font-face {
   font-family: "Font Awesome 5 Duotone";
   font-style: normal;
   font-weight: 900;
   font-display: block;
   src: url(fa-duotone-900.eot);
   src: url(fa-duotone-900.eot?#iefix) format("embedded-opentype"), url(fa-duotone-900.woff2) format("woff2"), url(fa-duotone-900.woff) format("woff"), url(fa-duotone-900.ttf) format("truetype"), url(fa-duotone-900.svg#fontawesome) format("svg");
-}
+} */
 .fad {
   position: relative;
   font-family: "Font Awesome 5 Duotone";
@@ -12724,14 +12724,14 @@
 .fad.fa-yin-yang:after {
   content: "\10f6ad";
 }
-@font-face {
+/* @font-face {
   font-family: "Font Awesome 5 Pro";
   font-style: normal;
   font-weight: 300;
   font-display: block;
   src: url(fa-light-300.eot);
   src: url(fa-light-300.eot?#iefix) format("embedded-opentype"), url(fa-light-300.woff2) format("woff2"), url(fa-light-300.woff) format("woff"), url(fa-light-300.ttf) format("truetype"), url(fa-light-300.svg#fontawesome) format("svg");
-}
+} */
 .fal {
   font-weight: 300;
 }

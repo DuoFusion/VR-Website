@@ -13,7 +13,7 @@ const Courses = () => {
   return (
     <>
       {All_Courses?.totalData !== 0 && (
-        <section className="courses-sel pt-130 pb-100">
+        <section className="courses-sel pt-130 pb-100" id="courses">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">

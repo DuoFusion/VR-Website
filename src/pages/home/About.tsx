@@ -1,7 +1,8 @@
+import { ImagePath } from "../../constants";
 
 const About = () => {
   return (
-    <section className="about-sel pt-130 pb-80">
+    <section className="about-sel pt-130 pb-80" id="about">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6">
@@ -31,7 +32,7 @@ const About = () => {
                   {/*===  Sasly Iconic Box  ===*/}
                   <div className="sasly-iconic-box style-six mb-30" data-aos="fade-up" data-aos-duration={1700}>
                     <div className="icon">
-                      <i className="fas fa-file-certificate" />
+                      <i className="fas fa-certificate" />
                     </div>
                     <div className="content">
                       <h5>Expert Instructor</h5>
@@ -49,13 +50,13 @@ const About = () => {
                 <span />
               </div>
               <div className="sasly-img_one animate-float-bob-y">
-                <img src="assets/images/about/about1.jpg" alt="About image" />
+                <img src={`${ImagePath}about/about1.jpg`} alt="About image" />
               </div>
               <div className="sasly-img_two animate-float-bob-x">
-                <img src="assets/images/about/about2.jpg" alt="About image" />
+                <img src={`${ImagePath}about/about2.jpg`} alt="About image" />
               </div>
               <div className="sasly-img_three">
-                <img src="assets/images/about/circle-text.png" className="rotate360" alt="About image" />
+                <img src={`${ImagePath}about/circle-text.png`} className="rotate360" alt="About image" />
               </div>
               <div className="sasly-rating-item animate-float-bob-x">
                 <div className="icon">

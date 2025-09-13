@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 import { Queries } from "../../api";
-import { ROUTES } from "../../constants";
+import { ImagePath, ROUTES } from "../../constants";
 
 const HeroBanner = () => {
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
   return (
     <section className="hero-sel">
-      <div className="pattern bg_cover" style={{ backgroundImage: "url(assets/images/hero/dot_bg.png)" }} />
+      <div className="pattern bg_cover" style={{ backgroundImage: `url(${ImagePath}hero/dot_bg.png)` }} />
       {/*===  Hero Image  ===*/}
       <div className="hero-image_one">
-        <img src="assets/images/hero/hero-img1.jpg" alt="Image" />
+        <img src={`${ImagePath}hero/hero-img1.jpg`} alt="Image" />
         <span className="circle" />
       </div>
       {/*===  Hero Image  ===*/}
       <div className="hero-image_two">
-        <img src="assets/images/hero/hero-img2.jpg" alt="Image" />
+        <img src={`${ImagePath}hero/hero-img2.jpg`} alt="Image" />
         <span className="circle" />
       </div>
       <div className="container">
@@ -42,19 +42,19 @@ const HeroBanner = () => {
                     <h5>Active Our Students</h5>
                     <ul className="author-list">
                       <li>
-                        <img src="assets/images/hero/avater1.png" alt="Author Image" />
+                        <img src={`${ImagePath}hero/avater1.png`} alt="Author Image" />
                       </li>
                       <li>
-                        <img src="assets/images/hero/avater2.png" alt="Author Image" />
+                        <img src={`${ImagePath}hero/avater2.png`} alt="Author Image" />
                       </li>
                       <li>
-                        <img src="assets/images/hero/avater3.png" alt="Author Image" />
+                        <img src={`${ImagePath}hero/avater3.png`} alt="Author Image" />
                       </li>
                       <li>
-                        <img src="assets/images/hero/avater4.png" alt="Author Image" />
+                        <img src={`${ImagePath}hero/avater4.png`} alt="Author Image" />
                       </li>
                       <li>
-                        <img src="assets/images/hero/avater5.png" alt="Author Image" />
+                        <img src={`${ImagePath}hero/avater5.png`} alt="Author Image" />
                       </li>
                     </ul>
                   </div>

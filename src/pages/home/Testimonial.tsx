@@ -11,7 +11,7 @@ const Testimonial = () => {
   return (
     <>
       {All_Testomonials?.totalData !== 0 && (
-        <section className="testimonial-sel pt-130 pb-130">
+        <section className="testimonial-sel pt-130 pb-130" id="testimonial">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -29,24 +29,8 @@ const Testimonial = () => {
                       </div>
                       <div className="testimonial-content">
                         <div className="rating-text">
-                          {/* <span>{item?.role}</span> */}
                           <ul className="ratings">
                           <Rate defaultValue={item?.rating} disabled/>
-                            {/* <li>
-                              <i className="fas fa-star" />
-                            </li>
-                            <li>
-                              <i className="fas fa-star" />
-                            </li>
-                            <li>
-                              <i className="fas fa-star" />
-                            </li>
-                            <li>
-                              <i className="fas fa-star" />
-                            </li>
-                            <li>
-                              <i className="fas fa-star" />
-                            </li> */}
                           </ul>
                         </div>
                         <p>{item?.message}</p>

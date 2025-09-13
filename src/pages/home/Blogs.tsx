@@ -12,7 +12,7 @@ const Blogs = () => {
   return (
     <>
       {All_Blog?.totalData !== 0 && (
-        <section className="blogs-sel pb-95 pt-130">
+        <section className="blogs-sel pb-95 pt-130" id="blog">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
