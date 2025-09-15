@@ -77,14 +77,18 @@ const Header = () => {
           <div className="row">
             <div className="col-lg-5">
               <div className="top-left">
-                <span>
-                  <i className="fas fa-envelope" />
-                  <Link to={`mailto:${WebSetting?.email}`}>{WebSetting?.email}</Link>
-                </span>
-                <span>
-                  <i className="fas fa-phone" />
-                  <Link to={`tel:${WebSetting?.phoneNumber}`}>{WebSetting?.phoneNumber}</Link>
-                </span>
+                {WebSetting?.email && (
+                  <span>
+                    <i className="fas fa-envelope" />
+                    <Link to={`mailto:${WebSetting?.email}`}>{WebSetting?.email}</Link>
+                  </span>
+                )}
+                {WebSetting?.phoneNumber && (
+                  <span>
+                    <i className="fas fa-phone" />
+                    <Link to={`tel:${WebSetting?.phoneNumber}`}>{WebSetting?.phoneNumber}</Link>
+                  </span>
+                )}
               </div>
             </div>
             <div className="col-lg-7">
@@ -135,7 +139,7 @@ const Header = () => {
                   {renderDropdown("Course", "course", All_Courses, ROUTES.COURSE.COURSE, ROUTES.COURSE.COURSE_DETAILS)}
 
                   {/* Blog */}
-                  {All_Blog?.totalData !== 0 && (
+                  {(All_Blog?.totalData ?? 0) > 0 && (
                     <li className="menu-item">
                       <Link to={ROUTES.BLOG.BLOG}>Blog</Link>
                     </li>
