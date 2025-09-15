@@ -15,7 +15,7 @@ const Course = () => {
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
 
-  const { data: Course } = Queries.useGetCourses({ featuresFilter: true, ...params });
+  const { data: Course } = Queries.useGetCourses(params);
   const All_Course = Course?.data;
   return (
     <Fragment>

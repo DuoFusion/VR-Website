@@ -10,8 +10,8 @@ const Header = () => {
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
   const fix = UseStickyBar(200);
 
-  const { data: Workshop } = Queries.useGetWorkshop({ featuresFilter: true });
-  const { data: Courses } = Queries.useGetCourses({ featuresFilter: true });
+  const { data: Workshop } = Queries.useGetWorkshop({});
+  const { data: Courses } = Queries.useGetCourses({});
   const { data: Blog } = Queries.useGetBlog({});
   const { data: WebSettingData } = Queries.useGetWebSetting();
 

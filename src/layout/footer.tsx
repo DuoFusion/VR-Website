@@ -12,8 +12,8 @@ const Footer = () => {
   const { mutate: useNewsLetter } = Mutations.useNewsLetter();
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
-  const { data: Workshop } = Queries.useGetWorkshop({ featuresFilter: true });
-  const { data: Courses } = Queries.useGetCourses({ featuresFilter: true });
+  const { data: Workshop } = Queries.useGetWorkshop({});
+  const { data: Courses } = Queries.useGetCourses({});
   const { data: Blog } = Queries.useGetBlog({});
 
   const handleSubmit = async (values: NewsLetterFormValues, { resetForm }: FormikHelpers<NewsLetterFormValues>) => {

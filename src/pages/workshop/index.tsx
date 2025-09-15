@@ -15,7 +15,7 @@ const Workshop = () => {
   const { data: WebSettingData } = Queries.useGetWebSetting();
   const WebSetting = WebSettingData?.data;
 
-  const { data: Workshop } = Queries.useGetWorkshop({ featuresFilter: true, ...params });
+  const { data: Workshop } = Queries.useGetWorkshop(params);
   const All_Workshop = Workshop?.data;
   return (
     <Fragment>
