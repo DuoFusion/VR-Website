@@ -9,7 +9,7 @@ export const WorkshopSettings = {
   speed: 800,
   autoplay: true,
   autoplaySpeed: 2500,
-  slidesToShow: 6,
+  slidesToShow: 5,
   variableWidth: true,
   slidesToScroll: 1,
   responsive: [

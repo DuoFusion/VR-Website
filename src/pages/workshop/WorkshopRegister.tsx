@@ -1,6 +1,7 @@
 import { Rate, Select } from "antd";
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from "formik";
 import { Fragment, useEffect } from "react";
+import PhoneInput from "react-phone-number-input";
 import { useNavigate, useParams } from "react-router-dom";
 import { Mutations, Queries } from "../../api";
 import { ROUTES } from "../../constants";
@@ -160,7 +161,7 @@ const WorkshopRegister = () => {
                         </div>
                         <div className="col-lg-6">
                           <div className="form-group">
-                            <Field type="text" className="form_control" placeholder="WhatsApp Number *" name="whatsAppNumber" />
+                            <Field name="whatsAppNumber">{({ field, form }: any) => <PhoneInput international defaultCountry="IN" value={field.value} onChange={(value) => form.setFieldValue(field.name, value)} onBlur={() => form.setFieldTouched(field.name, true)} className="form_control" placeholder="WhatsApp Number *" />}</Field>
                           </div>
                           <ErrorMessage name="whatsAppNumber" component="div" className="text-danger small" />
                         </div>

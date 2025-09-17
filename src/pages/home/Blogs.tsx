@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Href, ROUTES } from "../../constants";
 
 const Blogs = () => {
-  const { data: Blog } = Queries.useGetBlog({});
+  const { data: Blog } = Queries.useGetBlog({featuresFilter: true});
   const All_Blog = Blog?.data;
 
   return (

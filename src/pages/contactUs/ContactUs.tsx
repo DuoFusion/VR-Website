@@ -89,15 +89,21 @@ const ContactUs = () => {
               <div className="contact-wrapper mb-50" data-aos="fade-left" data-aos-duration={1400}>
                 <h3>Send Message Us</h3>
                 <p>Your email address will not be published. Required fields are marked *</p>
-                <Formik<ContactUsFormValues> initialValues={{ name: "", email: "", message: "" }} validationSchema={ContactUsSchema} onSubmit={handleSubmit} enableReinitialize>
+                <Formik<ContactUsFormValues> initialValues={{ name: "", email: "", message: "", phoneNumber: "" }} validationSchema={ContactUsSchema} onSubmit={handleSubmit} enableReinitialize>
                   {() => (
                     <Form id="contact-form" className="contact-form">
                       <div className="row">
-                        <div className="col-lg-6">
+                        <div className="col-lg-12">
                           <div className="form-group">
                             <Field type="text" className="form_control" placeholder="Name" name="name" />
                           </div>
                           <ErrorMessage name="name" component="div" className="text-danger small" />
+                        </div>
+                        <div className="col-lg-6">
+                          <div className="form-group">
+                            <Field type="number" className="form_control" placeholder="Phone Number" name="phoneNumber" />
+                          </div>
+                          <ErrorMessage name="phoneNumber" component="div" className="text-danger small" />
                         </div>
                         <div className="col-lg-6">
                           <div className="form-group">

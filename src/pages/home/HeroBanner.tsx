@@ -61,7 +61,7 @@ const HeroBanner = () => {
                 </div>
               </div>
               <div className="item" data-aos="fade-left" data-aos-duration={1400}>
-                <div className="content">
+                <a href="#testimonial" className="content">
                   <h2>{WebSetting?.rating}</h2>
                   <h5>Positive reviews</h5>
                   <ul className="ratings">
@@ -81,7 +81,7 @@ const HeroBanner = () => {
                       <i className="fas fa-star" />
                     </li>
                   </ul>
-                </div>
+                </a>
               </div>
             </div>
           </div>
