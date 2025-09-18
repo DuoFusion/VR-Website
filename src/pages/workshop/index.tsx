@@ -55,9 +55,7 @@ const Workshop = () => {
                       </div>
                     </div>
                     <div className="course-stats d-flex justify-content-between">
-                      <span>
-                        {/* <i className="fal fa-file-edit" /> */}₹{item?.price}
-                      </span>
+                      <span>{item?.price === 0 ? "Free" : <>₹{item?.price}</>}</span>
                       <span>
                         <i className="far fa-clock" />
                         {item?.duration}

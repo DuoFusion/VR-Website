@@ -34,7 +34,7 @@ const WorkshopRegister = () => {
     previousPercentage: undefined,
     targetPercentage: undefined,
     goal: "",
-    fees: (All_WorkshopDetails?.price ?? 0) * 100,
+    fees: All_WorkshopDetails?.price ,
   };
 
   useEffect(() => {
@@ -47,41 +47,47 @@ const WorkshopRegister = () => {
   const handleSubmit = async (values: WorkshopRegisterFormValues, { resetForm, setSubmitting }: FormikHelpers<WorkshopRegisterFormValues>) => {
     WorkshopRegister(values, {
       onSuccess: (response) => {
-        const orderPayload = response?.data?.razorpayOrder;
-        const purchasePayload = response?.data?.purchase;
-        try {
-          const options = {
-            key: WebSetting?.razorpayKeyId,
-            amount: orderPayload?.amount,
-            currency: orderPayload?.currency,
-            name: "Vinu Rani",
-            order_id: orderPayload?.id,
-            prefill: {
-              name: purchasePayload.name,
-              email: purchasePayload.email,
-              contact: purchasePayload.whatsAppNumber,
-            },
+        if (All_WorkshopDetails?.price === 0) {
+          resetForm();
+          navigate(ROUTES.WORKSHOP.WORKSHOP);
+        } else {
+          const orderPayload = response?.data?.razorpayOrder;
+          const purchasePayload = response?.data?.purchase;
+          try {
+            const options = {
+              key: WebSetting?.razorpayKeyId,
+              amount: orderPayload?.amount,
+              currency: orderPayload?.currency,
+              name: "Vinu Rani",
+              order_id: orderPayload?.id,
+              prefill: {
+                name: purchasePayload.name,
+                email: purchasePayload.email,
+                contact: purchasePayload.whatsAppNumber,
+              },
 
-            handler: async (response: any) => {
-              try {
-                WorkshopRegisterVerify(response, {
-                  onSuccess: () => {
-                    resetForm();
-                  },
-                });
-              } catch (error) {}
-            },
-            theme: {
-              color: "#3399cc",
-            },
-          };
-          const rzp1 = new window.Razorpay(options);
-          rzp1.on("payment.failed", function (response: any) {
-            console.log(response.error);
-          });
-          rzp1.open();
-        } catch (error) {}
-        setSubmitting(false);
+              handler: async (response: any) => {
+                try {
+                  WorkshopRegisterVerify(response, {
+                    onSuccess: () => {
+                      resetForm();
+                      navigate(ROUTES.WORKSHOP.WORKSHOP);
+                    },
+                  });
+                } catch (error) {}
+              },
+              theme: {
+                color: "#3399cc",
+              },
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.on("payment.failed", function (response: any) {
+              console.log(response.error);
+            });
+            rzp1.open();
+          } catch (error) {}
+          setSubmitting(false);
+        }
       },
       onError: () => setSubmitting(false),
     });
@@ -105,8 +111,14 @@ const WorkshopRegister = () => {
                     <div className="course-info">
                       <h4>
                         <span className="price">
-                          <span className="currency">₹</span>
-                          {All_WorkshopDetails?.price}
+                          {All_WorkshopDetails?.price === 0 ? (
+                            "Free"
+                          ) : (
+                            <>
+                              <span className="currency">₹</span>
+                              {All_WorkshopDetails?.price}
+                            </>
+                          )}
                         </span>
                         {All_WorkshopDetails?.title}
                       </h4>

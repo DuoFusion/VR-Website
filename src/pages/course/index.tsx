@@ -56,7 +56,7 @@ const Course = () => {
                     </div>
                     <div className="course-stats d-flex justify-content-between">
                       <span>
-                        {/* <i className="fal fa-file-edit" /> */}₹{item?.price}
+                        {item?.price === 0 ? "Free" : <>₹{item?.price}</>}
                       </span>
                       <span>
                         <i className="far fa-clock" />

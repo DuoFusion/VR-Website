@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Queries } from "../../api";
 import { ImagePath, ROUTES } from "../../constants";
+import { scrollToSection } from "../../utils/scrollToSection";
 
 const HeroBanner = () => {
   const { data: WebSettingData } = Queries.useGetWebSetting();
@@ -61,7 +62,7 @@ const HeroBanner = () => {
                 </div>
               </div>
               <div className="item" data-aos="fade-left" data-aos-duration={1400}>
-                <a href="#testimonial" className="content">
+                <Link to={"#testimonial"} onClick={() => scrollToSection("#testimonial")}className="content">
                   <h2>{WebSetting?.rating}</h2>
                   <h5>Positive reviews</h5>
                   <ul className="ratings">
@@ -81,7 +82,7 @@ const HeroBanner = () => {
                       <i className="fas fa-star" />
                     </li>
                   </ul>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

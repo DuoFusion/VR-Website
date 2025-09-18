@@ -34,7 +34,7 @@ const CourseRegister = () => {
     previousPercentage: undefined,
     targetPercentage: undefined,
     goal: "",
-    fees: (All_CoursesDetails?.price ?? 0) * 100,
+    fees: All_CoursesDetails?.price,
   };
 
   useEffect(() => {
@@ -47,41 +47,46 @@ const CourseRegister = () => {
   const handleSubmit = async (values: CoursesRegisterFormValues, { resetForm, setSubmitting }: FormikHelpers<CoursesRegisterFormValues>) => {
     CoursesRegister(values, {
       onSuccess: (response) => {
-        const orderPayload = response?.data?.razorpayOrder;
-        const purchasePayload = response?.data?.purchase;
-        try {
-          const options = {
-            key: WebSetting?.razorpayKeyId,
-            amount: orderPayload?.amount,
-            currency: orderPayload?.currency,
-            name: "Vinu Ramani",
-            order_id: orderPayload?.id,
-            prefill: {
-              name: purchasePayload.name,
-              email: purchasePayload.email,
-              contact: purchasePayload.whatsAppNumber,
-            },
-
-            handler: async (response: any) => {
-              try {
-                CoursesRegisterVerify(response, {
-                  onSuccess: () => {
-                    resetForm();
-                  },
-                });
-              } catch (error) {}
-            },
-            theme: {
-              color: "#3399cc",
-            },
-          };
-          const rzp1 = new window.Razorpay(options);
-          rzp1.on("payment.failed", function (response: any) {
-            console.log(response.error);
-          });
-          rzp1.open();
-        } catch (error) {}
-        setSubmitting(false);
+        if (All_CoursesDetails?.price === 0) {
+          resetForm();
+          navigate(ROUTES.COURSE.COURSE);
+        } else {
+          const orderPayload = response?.data?.razorpayOrder;
+          const purchasePayload = response?.data?.purchase;
+          try {
+            const options = {
+              key: WebSetting?.razorpayKeyId,
+              amount: orderPayload?.amount,
+              currency: orderPayload?.currency,
+              name: "Vinu Ramani",
+              order_id: orderPayload?.id,
+              prefill: {
+                name: purchasePayload.name,
+                email: purchasePayload.email,
+                contact: purchasePayload.whatsAppNumber,
+              },
+              handler: async (response: any) => {
+                try {
+                  CoursesRegisterVerify(response, {
+                    onSuccess: () => {
+                      resetForm();
+                      // navigate(ROUTES.COURSE.COURSE);
+                    },
+                  });
+                } catch (error) {}
+              },
+              theme: {
+                color: "#3399cc",
+              },
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.on("payment.failed", function (response: any) {
+              console.log(response.error);
+            });
+            rzp1.open();
+          } catch (error) {}
+          setSubmitting(false);
+        }
       },
       onError: () => setSubmitting(false),
     });
@@ -105,8 +110,14 @@ const CourseRegister = () => {
                     <div className="course-info">
                       <h4>
                         <span className="price">
-                          <span className="currency">₹</span>
-                          {All_CoursesDetails?.price}
+                          {All_CoursesDetails?.price === 0 ? (
+                            "Free"
+                          ) : (
+                            <>
+                              <span className="currency">₹</span>
+                              {All_CoursesDetails?.price}
+                            </>
+                          )}
                         </span>
                         {All_CoursesDetails?.title}
                       </h4>

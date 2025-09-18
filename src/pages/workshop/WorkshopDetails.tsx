@@ -48,7 +48,7 @@ const WorkshopDetails = () => {
                     </div>
                     <div className="course-meta">
                       <div className="ef-rating-box">
-                        <h3>₹{All_WorkshopDetails?.price}</h3>
+                        <h3>{All_WorkshopDetails?.price === 0 ? "Free" : <>₹{All_WorkshopDetails?.price}</>}</h3>
                       </div>
                       <div className="ef-rating-box">
                         <div className="course-button text-center">

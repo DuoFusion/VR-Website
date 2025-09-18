@@ -48,8 +48,14 @@ const CourseDetails = () => {
                     <div className="course-meta">
                       <div className="ef-rating-box">
                         <h3 className="price-text">
-                          ₹{All_CourseDetails?.price}
-                          <span>₹{All_CourseDetails?.mrp}</span>
+                          {All_CourseDetails?.price === 0 ? (
+                            "Free"
+                          ) : (
+                            <>
+                              ₹{All_CourseDetails?.price}
+                              {All_CourseDetails?.mrp && <span>₹{All_CourseDetails?.mrp}</span>}
+                            </>
+                          )}
                         </h3>
                       </div>
                       <div className="ef-rating-box">
