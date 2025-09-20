@@ -58,7 +58,7 @@ const WorkshopRegister = () => {
               key: WebSetting?.razorpayKeyId,
               amount: orderPayload?.amount,
               currency: orderPayload?.currency,
-              name: "Vinu Rani",
+              name: "Vinu Ramani",
               order_id: orderPayload?.id,
               prefill: {
                 name: purchasePayload.name,
