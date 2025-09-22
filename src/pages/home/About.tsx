@@ -55,9 +55,9 @@ const About = () => {
               <div className="sasly-img_two animate-float-bob-x">
                 <img src={`${ImagePath}about/about2.jpg`} alt="About image" />
               </div>
-              <div className="sasly-img_three">
+              {/* <div className="sasly-img_three">
                 <img src={`${ImagePath}about/circle-text.png`} className="rotate360" alt="About image" />
-              </div>
+              </div> */}
               <div className="sasly-rating-item animate-float-bob-x">
                 <div className="icon">
                   <i className="flaticon-positive-review" />
