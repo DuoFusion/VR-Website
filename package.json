@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "npm run build && vite preview"
   },
   "dependencies": {
     "@ant-design/v5-patch-for-react-19": "^1.0.3",
@@ -16,7 +16,7 @@
     "@types/node": "^24.3.1",
     "@types/react-slick": "^0.23.13",
     "@types/slick-carousel": "^1.6.40",
-    "antd": "^5.27.3",
+    "antd": "^5.27.3",  
     "aos": "^2.3.4",
     "axios": "^1.11.0",
     "formik": "^2.4.6",
